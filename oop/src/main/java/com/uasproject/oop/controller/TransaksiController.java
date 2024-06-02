@@ -54,8 +54,8 @@ public class TransaksiController {
             detail.setObat(obatService.getObatById(obatId));
             detail.setJumlah(qty);
             detail.setHargaSatuan(hargaSatuan);
-            detail.setTotal(subtotal);
-            transaksi.getTransaksiDetails().add(detail);
+            detail.setSubtotal(subtotal);
+            transaksi.addTransaksiDetail(detail);
         }
 
         transaksi.setTotal(total);
@@ -81,4 +81,26 @@ public class TransaksiController {
             Long obatId = obatIds.get(i);
             Integer qty = jumlah.get(i);
             double hargaSatuan = obatService.getObatById(obatId).getHarga();
-            double subtotal =
+            double subtotal = hargaSatuan * qty;
+            total += subtotal;
+
+            TransaksiDetail detail = new TransaksiDetail();
+            detail.setObat(obatService.getObatById(obatId));
+            detail.setJumlah(qty);
+            detail.setHargaSatuan(hargaSatuan);
+            detail.setSubtotal(subtotal);
+            transaksi.addTransaksiDetail(detail);
+        }
+
+        transaksi.setTotal(total);
+        transaksiService.saveTransaksi(transaksi);
+
+        return "redirect:/transaksi";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteTransaksi(@PathVariable Long id) {
+        transaksiService.deleteTransaksiById(id);
+        return "redirect:/transaksi";
+    }
+}
