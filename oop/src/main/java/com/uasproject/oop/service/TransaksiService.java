@@ -21,11 +21,11 @@ public class TransaksiService {
         return transaksiRepository.findById(id).orElse(null);
     }
 
-    public Transaksi saveTransaksi(Transaksi transaksi) {
-        return transaksiRepository.save(transaksi);
+    public void saveTransaksi(Transaksi transaksi) {
+        transaksiRepository.save(transaksi);
     }
 
-    public void deleteTransaksi(Long id) {
+    public void deleteTransaksiById(Long id) {
         transaksiRepository.deleteById(id);
     }
 }

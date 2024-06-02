@@ -21,10 +21,51 @@ public class TransaksiDetail {
     private Double subtotal;
 
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Transaksi getTransaksi() {
+        return transaksi;
+    }
 
     public void setTransaksi(Transaksi transaksi) {
         this.transaksi = transaksi;
     }
 
-    // other getters and setters
+    public Obat getObat() {
+        return obat;
+    }
+
+    public void setObat(Obat obat) {
+        this.obat = obat;
+    }
+
+    public Integer getJumlah() {
+        return jumlah;
+    }
+
+    public void setJumlah(Integer jumlah) {
+        this.jumlah = jumlah;
+    }
+
+    public Double getHargaSatuan() {
+        return hargaSatuan;
+    }
+
+    public void setHargaSatuan(Double hargaSatuan) {
+        this.hargaSatuan = hargaSatuan;
+    }
+
+    public Double getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(Double subtotal) {
+        this.subtotal = subtotal;
+    }
 }

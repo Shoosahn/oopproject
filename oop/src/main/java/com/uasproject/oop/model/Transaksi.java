@@ -20,11 +20,40 @@ public class Transaksi {
     private Double total;
 
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Pelanggan getPelanggan() {
+        return pelanggan;
+    }
+
+    public void setPelanggan(Pelanggan pelanggan) {
+        this.pelanggan = pelanggan;
+    }
+
+    public List<TransaksiDetail> getTransaksiDetails() {
+        return transaksiDetails;
+    }
+
+    public void setTransaksiDetails(List<TransaksiDetail> transaksiDetails) {
+        this.transaksiDetails = transaksiDetails;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 
     public void addTransaksiDetail(TransaksiDetail detail) {
         transaksiDetails.add(detail);
         detail.setTransaksi(this);
     }
-
-    // other getters and setters
 }
