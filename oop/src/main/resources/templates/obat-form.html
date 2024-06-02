@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Obat</title>
+</head>
+<body>
+    <h1 th:text="${obat.id == null ? 'Tambah Obat Baru' : 'Edit Obat'}"></h1>
+    <form th:action="@{/obat}" th:object="${obat}" method="post">
+        <input type="hidden" th:if="${obat.id != null}" th:field="*{id}">
+        <label>Nama:</label>
+        <input type="text" th:field="*{nama}">
+        <br>
+        <label>Kategori:</label>
+        <input type="text" th:field="*{kategori}">
+        <br>
+        <label>Harga:</label>
+        <input type="text" th:field="*{harga}">
+        <br>
+        <label>Stok:</label>
+        <input type="text" th:field="*{stok}">
+        <br>
+        <button type="submit">Simpan</button>
+    </form>
+    <a href="/obat">Kembali ke Daftar</a>
+</body>
+</html>

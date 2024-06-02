@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Transaksi</title>
+</head>
+<body>
+    <h1>Daftar Transaksi</h1>
+    <a href="/transaksi/new">Tambah Transaksi Baru</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>Pelanggan</th>
+                <th>Total</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="transaksi : ${transaksiList}">
+                <td th:text="${#dates.format(transaksi.tanggal, 'dd-MM-yyyy')}">Tanggal</td>
+                <td th:text="${transaksi.pelanggan.nama}">Pelanggan</td>
+                <td th:text="${transaksi.total}">Total</td>
+                <td>
+                    <a th:href="@{/transaksi/edit/{id}(id=${transaksi.id})}">Edit</a>
+                    <a th:href="@{/transaksi/delete/{id}(id=${transaksi.id})}">Hapus</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

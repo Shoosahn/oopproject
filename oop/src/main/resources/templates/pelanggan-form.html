@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Pelanggan</title>
+</head>
+<body>
+    <h1 th:text="${pelanggan.id == null ? 'Tambah Pelanggan Baru' : 'Edit Pelanggan'}"></h1>
+    <form th:action="@{/pelanggan}" th:object="${pelanggan}" method="post">
+        <input type="hidden" th:if="${pelanggan.id != null}" th:field="*{id}">
+        <label>Nama:</label>
+        <input type="text" th:field="*{nama}">
+        <br>
+        <label>Alamat:</label>
+        <input type="text" th:field="*{alamat}">
+        <br>
+        <label>No. Telepon:</label>
+        <input type="text" th:field="*{noTelepon}">
+        <br>
+        <button type="submit">Simpan</button>
+    </form>
+    <a href="/pelanggan">Kembali ke Daftar</a>
+</body>
+</html>

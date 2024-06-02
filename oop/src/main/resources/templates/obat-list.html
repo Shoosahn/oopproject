@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Obat</title>
+</head>
+<body>
+    <h1>Daftar Obat</h1>
+    <a href="/obat/new">Tambah Obat Baru</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Kategori</th>
+                <th>Harga</th>
+                <th>Stok</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="obat : ${obatList}">
+                <td th:text="${obat.nama}">Nama</td>
+                <td th:text="${obat.kategori}">Kategori</td>
+                <td th:text="${obat.harga}">Harga</td>
+                <td th:text="${obat.stok}">Stok</td>
+                <td>
+                    <a th:href="@{/obat/edit/{id}(id=${obat.id})}">Edit</a>
+                    <a th:href="@{/obat/delete/{id}(id=${obat.id})}">Hapus</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

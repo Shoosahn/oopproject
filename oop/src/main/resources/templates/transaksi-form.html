@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Transaksi</title>
+</head>
+<body>
+    <h1 th:text="${transaksi.id == null ? 'Tambah Transaksi Baru' : 'Edit Transaksi'}"></h1>
+    <form th:action="@{/transaksi}" th:object="${transaksi}" method="post">
+        <input type="hidden" th:if="${transaksi.id != null}" th:field="*{id}">
+        <label>Tanggal:</label>
+        <input type="date" th:field="*{tanggal}">
+        <br>
+        <label>Pelanggan:</label>
+        <select th:field="*{pelanggan.id}">
+            <option th:each="pelanggan : ${pelangganList}" th:value="${pelanggan.id}" th:text="${pelanggan.nama}">Pelanggan</option>
+        </select>
+        <br>
+        <label>Total:</label>
+        <input type="text" th:field="*{total}">
+        <br>
+        <button type="submit">Simpan</button>
+    </form>
+    <a href="/transaksi">Kembali ke Daftar</a>
+</body>
+</html>

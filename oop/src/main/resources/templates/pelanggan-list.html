@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Daftar Pelanggan</title>
+</head>
+<body>
+    <h1>Daftar Pelanggan</h1>
+    <a href="/pelanggan/new">Tambah Pelanggan Baru</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>No. Telepon</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="pelanggan : ${pelangganList}">
+                <td th:text="${pelanggan.nama}">Nama</td>
+                <td th:text="${pelanggan.alamat}">Alamat</td>
+                <td th:text="${pelanggan.noTelepon}">No. Telepon</td>
+                <td>
+                    <a th:href="@{/pelanggan/edit/{id}(id=${pelanggan.id})}">Edit</a>
+                    <a th:href="@{/pelanggan/delete/{id}(id=${pelanggan.id})}">Hapus</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
